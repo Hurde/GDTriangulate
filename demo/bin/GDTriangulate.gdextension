@@ -1,0 +1,9 @@
+[configuration]
+
+entry_symbol = "initgdtriangulate"
+compatibility_minimum = "4.2"
+
+[libraries]
+
+windows.debug.x86_64 = "res://addons/GDTriangulate/bin/gdtriangulate.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://addons/GDTriangulate/bin/gdtriangulate.windows.template_debug.x86_64.dll"

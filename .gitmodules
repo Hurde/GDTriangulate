@@ -1,0 +1,6 @@
+[submodule "godot-cpp"]
+	path = godot-cpp
+	url = https://github.com/godotengine/godot-cpp
+[submodule "src/earcut.hpp"]
+	path = src/earcut.hpp
+	url = https://github.com/mapbox/earcut.hpp
