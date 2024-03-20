@@ -29,7 +29,7 @@ public:
     void add_polygon(const PackedVector2Array& polygon);
     Ref<ArrayMesh> create_mesh_from_polygon(const PackedVector2Array& vertices, const PackedInt32Array& indices);
     MeshInstance2D* draw_mesh();
-    std::pair<PackedVector2Array, PackedInt32Array> triangulate(const PackedVector2Array& pointsArray);
+    Array triangulate(const PackedVector2Array& pointsArray);
 };
 
 #endif // GDTRIANGULATE_H

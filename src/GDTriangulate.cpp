@@ -21,7 +21,10 @@ GDTriangulate::~GDTriangulate() {
 
 void GDTriangulate::add_polygon(const PackedVector2Array& polygon) {
 
-    auto [vertices, indices] = triangulate(polygon);
+    Array triangulationResult = triangulate(polygon);
+
+    PackedVector2Array vertices = triangulationResult[0];
+    PackedInt32Array indices = triangulationResult[1];
 
     int offset = allVertices.size();
     for (int i = 0; i < indices.size(); ++i) {
@@ -65,7 +68,7 @@ using Point = std::array<double, 2>;
 using N = uint32_t;
 
 // Here happens the actual triangulation
-std::pair<PackedVector2Array, PackedInt32Array> GDTriangulate::triangulate(const PackedVector2Array& pointsArray) {
+Array GDTriangulate::triangulate(const PackedVector2Array& pointsArray) {
     std::vector<Point> vertices;
     
     for (int i = 0; i < pointsArray.size(); ++i) {
@@ -89,6 +92,10 @@ std::pair<PackedVector2Array, PackedInt32Array> GDTriangulate::triangulate(const
         outputIndices.push_back(index);
     }
 
-    return std::make_pair(outputVertices, outputIndices);
+    Array return_array;
+    return_array.push_back(outputVertices);
+    return_array.push_back(outputIndices);
+
+    return return_array;
 }
 
