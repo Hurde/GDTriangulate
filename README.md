@@ -1,30 +1,36 @@
 # GDTriangulate
 
-## Why ?
+## Why?
 
-  As godots regular triangulation method for polygons becomes really slow when you exceed a certain amount of points. 
-  I had to come up with a different solution
-  This GDExtension uses (any) external library to perform a way faster triangulation.
+Godot's standard triangulation method for polygons slows down with a large number of points. GDTriangulate, a GDExtension, uses external libraries for faster triangulation.
 
-## Howto use this GDExtension?
+## How to Use This GDExtension
 
-  Assuming you you know a little of creating a GDExtension.
-  Have a compiler and scons ready.
-  You can follow these steps to get this GDExtension working.
+Assuming some familiarity with GDExtensions and having a compiler and SCons:
 
-  1. Clone the repository: git clone --recurse-submodules https://github.com/Hurde/GDTriangulate
-  2. CD into the repo: cd GDTriangulate
-  3. run scons: scons
+### Setup and Compilation
 
-  This will compile the GDExtension and can eventually been found in GDTriangulate/demo/bin
+    Clone the repository with submodules:
+    git clone --recurse-submodules https://github.com/Hurde/GDTriangulate
 
-  There are a couple ways to add the GDExtension to godot.
-  But what i did was to Symlink the folder into the Godot project
-  
-  1. Create the GDTriangulate addon folder in your godot project: godot_project\addons\GDTriangulate\
-  2. Symlink the folders: mklink /D "C:\path\to\your\godot_project\addons\GDTriangulate" "C:\path\to\your\GDTriangulate\demo"
-  3. Modify the
+    Navigate into the repository:
+    cd GDTriangulate
 
-  Thats it. if done right you'll see a new node called "GDTriangulate" and be able to use the triangulation method.
-  GDTriangulatenode.triangulate(PackedVector2Array) < your polygon
- 
+    Compile with SCons:
+    scons
+    
+The GDExtension is in GDTriangulate/demo/bin after compiling.
+
+### Integrating with Your Godot Project
+
+    Create the addon folder in your project:
+    mkdir -p your_godot_project/addons/GDTriangulate/
+
+    Create a symlink:
+    mklink /D "C:\path\to\your\godot_project\addons\GDTriangulate" "C:\path\to\your\GDTriangulate\demo"
+
+### Using the GDExtension
+
+Once integrated, a new node named "GDTriangulate" appears. Use it to perform fast triangulation:
+
+GDTriangulatenode.triangulate(PackedVector2Array) # Your polygon
